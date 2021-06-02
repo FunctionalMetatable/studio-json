@@ -5,14 +5,14 @@ module.exports = (req, res) => {
   fetch(`https://scratch.mit.edu/site-api/users/owners-in/${req.query.studio}/${req.query.page}/`).then(r => r.text()).then(html => {
     const { window, document } = parseHTML(html)
 
-    let all = Array.from(document.querySelectorAll('.info.title'))
+    let all = Array.from(document.querySelectorAll('.avatar.thumb.vertical'))
 
     let array = []
 
     for (let j in all) {
       let element = all[j]
       
-      array.push(element.innerText)
+      array.push(element.href.split("/")[2])
     }
 
 
