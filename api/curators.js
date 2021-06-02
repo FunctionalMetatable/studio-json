@@ -15,7 +15,7 @@ module.exports = (req, res) => {
       array.push(element.innerText)
     }
 
-    res.header("Access-Control-Allow-Origin", "*")
+    res.set("Access-Control-Allow-Origin", "*")
     res.json(array)
   })
 }
